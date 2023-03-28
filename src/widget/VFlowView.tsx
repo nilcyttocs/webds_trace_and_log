@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -36,6 +36,9 @@ const LogEntry = styled('div')`
 `;
 
 export const VFlowView = (props: any): JSX.Element => {
+  const theme = useTheme();
+  const dark = theme.palette.mode === 'dark' ? '-dark' : '';
+
   const generateTableRow = (logEntry: LogData | undefined): JSX.Element[] => {
     const tableRow: JSX.Element[] = [];
     for (let i = 0; i < LAYERS.length; i++) {
@@ -136,7 +139,7 @@ export const VFlowView = (props: any): JSX.Element => {
           component={Box}
           sx={{ width: VFLOW_TABLE_WIDTH + 'px', overflow: 'visible' }}
         >
-          <Table className={'jp-webds-tnl-vflow-body'} stickyHeader>
+          <Table className={'jp-webds-tnl-vflow-body' + dark} stickyHeader>
             <TableBody>{generateTableContent()}</TableBody>
           </Table>
         </TableContainer>

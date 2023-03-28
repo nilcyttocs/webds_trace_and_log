@@ -17,6 +17,7 @@ const headers = ['Event', 'Layer', 'Level', 'Timestamp', 'Raw Data'];
 
 export const TableView = (props: any): JSX.Element => {
   const theme = useTheme();
+  const dark = theme.palette.mode === 'dark' ? '-dark' : '';
 
   const generateTableRow = (logEntry: LogData | undefined): JSX.Element[] => {
     const tableRow: JSX.Element[] = [
@@ -135,7 +136,7 @@ export const TableView = (props: any): JSX.Element => {
         sx={{ overflow: 'auto' }}
       >
         <Table
-          className={'jp-webds-tnl-table-body'}
+          className={'jp-webds-tnl-table-body' + dark}
           stickyHeader
           sx={{ tableLayout: 'fixed' }}
         >
