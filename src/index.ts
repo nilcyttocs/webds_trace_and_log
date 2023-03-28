@@ -2,24 +2,24 @@ import {
   ILayoutRestorer,
   JupyterFrontEnd,
   JupyterFrontEndPlugin
-} from "@jupyterlab/application";
+} from '@jupyterlab/application';
 
-import { WidgetTracker } from "@jupyterlab/apputils";
+import { WidgetTracker } from '@jupyterlab/apputils';
 
-import { ILauncher } from "@jupyterlab/launcher";
+import { ILauncher } from '@jupyterlab/launcher';
 
-import { WebDSService, WebDSWidget } from "@webds/service";
+import { WebDSService, WebDSWidget } from '@webds/service';
 
-import { defaultIcon } from "./icons";
+import { traceAndLogIcon } from './icons';
 
-import TraceAndLogWidget from "./widget/TraceAndLogWidget";
+import TraceAndLogWidget from './widget/TraceAndLogWidget';
 
 namespace Attributes {
-  export const command = "webds_trace_and_log:open";
-  export const id = "webds_trace_and_log_widget";
-  export const label = "Trace and Log";
-  export const caption = "Trace and Log";
-  export const category = "Device - Assessment";
+  export const command = 'webds_trace_and_log:open';
+  export const id = 'webds_trace_and_log_widget';
+  export const label = 'Trace and Log';
+  export const caption = 'Trace and Log';
+  export const category = 'Device - Assessment';
   export const rank = 80;
 }
 
@@ -29,7 +29,7 @@ export let webdsService: WebDSService;
  * Initialization data for the @webds/trace_and_log extension.
  */
 const plugin: JupyterFrontEndPlugin<void> = {
-  id: "@webds/trace_and_log:plugin",
+  id: '@webds/trace_and_log:plugin',
   autoStart: true,
   requires: [ILauncher, ILayoutRestorer, WebDSService],
   activate: (
@@ -38,7 +38,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     restorer: ILayoutRestorer,
     service: WebDSService
   ) => {
-    console.log("JupyterLab extension @webds/trace_and_log is activated!");
+    console.log('JupyterLab extension @webds/trace_and_log is activated!');
 
     webdsService = service;
 
@@ -49,7 +49,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
       label: Attributes.label,
       caption: Attributes.caption,
       icon: (args: { [x: string]: any }) => {
-        return args["isLauncher"] ? defaultIcon : undefined;
+        return args['isLauncher'] ? traceAndLogIcon : undefined;
       },
       execute: () => {
         if (!widget || widget.isDisposed) {
@@ -57,13 +57,13 @@ const plugin: JupyterFrontEndPlugin<void> = {
           widget = new WebDSWidget<TraceAndLogWidget>({ content });
           widget.id = Attributes.id;
           widget.title.label = Attributes.label;
-          widget.title.icon = defaultIcon;
+          widget.title.icon = traceAndLogIcon;
           widget.title.closable = true;
         }
 
         if (!tracker.has(widget)) tracker.add(widget);
 
-        if (!widget.isAttached) shell.add(widget, "main");
+        if (!widget.isAttached) shell.add(widget, 'main');
 
         shell.activateById(widget.id);
       }

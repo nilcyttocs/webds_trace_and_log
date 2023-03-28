@@ -1,8 +1,8 @@
-import { LabIcon } from "@jupyterlab/ui-components";
+import { LabIcon } from '@jupyterlab/ui-components';
 
-import defaultSvg from "../style/icons/landscape-image-svgrepo-com.svg";
+import traceAndLogSvg from '../style/icons/scroll-svgrepo-com.svg';
 
-export const defaultIcon = new LabIcon({
-  name: "webds_trace_and_log_icon",
-  svgstr: defaultSvg
+export const traceAndLogIcon = new LabIcon({
+  name: 'webds_trace_and_log_icon',
+  svgstr: traceAndLogSvg
 });

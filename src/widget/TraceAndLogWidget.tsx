@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { ReactWidget } from "@jupyterlab/apputils";
+import { ReactWidget } from '@jupyterlab/apputils';
 
-import TraceAndLogComponent from "./TraceAndLogComponent";
+import TraceAndLogComponent from './TraceAndLogComponent';
 
 export class TraceAndLogWidget extends ReactWidget {
   id: string;
@@ -14,7 +14,7 @@ export class TraceAndLogWidget extends ReactWidget {
 
   render(): JSX.Element {
     return (
-      <div id={this.id + "_component"}>
+      <div id={this.id + '_component'}>
         <TraceAndLogComponent />
       </div>
     );
