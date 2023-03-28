@@ -3,3 +3,76 @@
 
     https://jupyterlab.readthedocs.io/en/stable/developer/css.html
 */
+.jp-webds-tnl-vflow-header {
+  box-sizing: border-box;
+}
+
+.jp-webds-tnl-vflow-header th {
+  width: 100px;
+  height: 24px;
+  padding: 0px;
+  text-align: center;
+}
+
+.jp-webds-tnl-vflow-body td {
+  box-sizing: border-box;
+}
+
+.jp-webds-tnl-vflow-body td {
+  width: 100px;
+  height: 24px;
+  padding: 0px;
+  border: 0px;
+  border-right: 1px solid rgba(224, 224, 224, 1);
+  box-sizing: border-box;
+}
+
+.jp-webds-tnl-vflow-body td:last-child {
+  border-right: 0px;
+}
+
+.jp-webds-tnl-table-header {
+  box-sizing: border-box;
+}
+
+.jp-webds-tnl-table-header th {
+  width: 150px;
+  height: 32px;
+  padding: 0px;
+  text-align: center;
+}
+
+.jp-webds-tnl-table-header th:first-child {
+  width: 200px;
+}
+
+.jp-webds-tnl-table-header th:last-child {
+  width: 100%;
+}
+
+.jp-webds-tnl-table-body {
+  border: 1px solid rgba(224, 224, 224, 1);
+  border-top: 0px;
+  border-bottom: 0px;
+  box-sizing: border-box;
+}
+
+.jp-webds-tnl-table-body td {
+  width: 150px;
+  height: 24px;
+  padding: 0px;
+  border-right: 1px solid rgba(224, 224, 224, 1);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.jp-webds-tnl-table-body td:first-child {
+  width: 200px;
+}
+
+.jp-webds-tnl-table-body td:last-child {
+  width: 100%;
+  border-right: 0px;
+  text-align: left;
+  padding-left: 64px;
+}
