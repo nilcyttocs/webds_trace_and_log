@@ -16,8 +16,8 @@ import {
   DEFAULT_LAYER_FILTER,
   DEFAULT_LOG_LEVEL_FILTER,
   LAYERS,
-  LogData,
-  LOG_LEVELS
+  LOG_LEVELS,
+  LogData
 } from './constants';
 import {
   FilterButton,
