@@ -24,7 +24,7 @@ import {
   PauseRunToggle,
   ResetButton,
   SwitchButton
-} from './mui_extensions/Button';
+} from './mui_extensions/Buttons';
 import { Canvas } from './mui_extensions/Canvas';
 import { CANVAS_ATTRS } from './mui_extensions/constants';
 import { Content } from './mui_extensions/Content';
