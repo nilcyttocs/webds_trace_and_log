@@ -20,7 +20,7 @@ namespace Attributes {
   export const label = 'Trace and Log';
   export const caption = 'Trace and Log';
   export const category = 'Device - Assessment';
-  export const rank = 80;
+  export const rank = 90;
 }
 
 export let webdsService: WebDSService;
