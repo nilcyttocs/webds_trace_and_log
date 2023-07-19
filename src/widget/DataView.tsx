@@ -14,7 +14,7 @@ export const DataView = (props: any): JSX.Element => {
         gap: '16px'
       }}
     >
-      {props.selected !== null && (
+      {props.selected !== null && props.selected < props.dataSet.length && (
         <>
           <div>
             <Typography variant="body2" sx={{ fontWeight: 'bold' }}>

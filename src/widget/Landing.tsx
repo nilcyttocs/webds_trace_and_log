@@ -156,6 +156,7 @@ export const Landing = (props: any): JSX.Element => {
   const runRef = useRef(run);
   const timeRef = useRef(time);
   const indexRef = useRef(index);
+  const dataSetRef = useRef(dataSet);
 
   const eventHandler = (event: any) => {
     if (!runRef.current) {
@@ -167,18 +168,16 @@ export const Landing = (props: any): JSX.Element => {
     }
     if ('report' in data && data.report[0] === 197) {
       const now = Date.now();
-      setDataSet(prev => {
-        if (prev.length === 0) {
-          setTime(now);
-        }
-        const logEntries: LogData[] = parseLogData(
-          prev.length ? now - timeRef.current : 0,
-          indexRef.current,
-          data.report[1]
-        );
-        setIndex(prev => prev + logEntries.length);
-        return [...prev, ...logEntries];
-      });
+      if (dataSetRef.current.length === 0) {
+        setTime(now);
+      }
+      const logEntries: LogData[] = parseLogData(
+        dataSetRef.current.length ? now - timeRef.current : 0,
+        indexRef.current,
+        data.report[1]
+      );
+      setDataSet([...dataSetRef.current, ...logEntries]);
+      setIndex(indexRef.current + logEntries.length);
     }
   };
 
@@ -385,7 +384,10 @@ export const Landing = (props: any): JSX.Element => {
   }, [index]);
 
   useEffect(() => {
-    addEvent();
+    dataSetRef.current = dataSet;
+  }, [dataSet]);
+
+  useEffect(() => {
     return () => {
       removeEvent();
     };
@@ -494,6 +496,11 @@ export const Landing = (props: any): JSX.Element => {
           <PauseRunToggle
             running={run}
             onClick={() => {
+              if (!run) {
+                addEvent();
+              } else {
+                removeEvent();
+              }
               setRun(!run);
             }}
           />
